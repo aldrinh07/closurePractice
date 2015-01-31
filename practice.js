@@ -10,11 +10,11 @@ var outer = function(){
 //Invoke outer saving the return value into another variable called 'inner'.
 
   //Code Here
-
+inner = outer();
 //Once you do that, invoke inner.
 
   //Code Here
-
+inner();
 
 
 //Next problem
@@ -33,10 +33,9 @@ var callFriend = function(){
 //Do what you need to do in order to call your function and get 'Calling Jake at 435-215-9248' in your console.
 
   //Code Here
-
-
-
-//Next Problem
+var number = "435-215-9248";
+var call = callFriend();
+alert(call(number));
 
 
 
@@ -45,12 +44,19 @@ var callFriend = function(){
 */
 
   //Code Here
+var makeCounter = function(){
+    var counter = 0;
+    return function(){
+        alert(counter);
+        counter++;
+    }
+};
+
   var count = makeCounter();
   count() // 1
   count() // 2
   count() // 3
   count() // 4
-
 
 
 //Next Problem
@@ -63,7 +69,43 @@ var callFriend = function(){
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
+var func1 = function(cb,n){
+    var counter = 0;
+       if(counter = n){
+           console.log("STAHHP")
+       }
+    return newfunction(){
+        cb();
+    }
+}
 
+var makeCounter = function(n){
+    var counter = 0;
+    return function(){
+        if(counter >= n){
+            alert("STAHHP")
+        } else{
+        alert(counter);
+        counter++;
+        }
+    }
+};
 
+// answer
 
+var fn = function(cb, n) {
+    return cb(n);
+}
 
+var callBackFn = function(n) {
+    return function() {
+        n--
+        if(n >= 0){
+            console.log('weeeeeee');
+        } else {
+            console.log('stop');
+        }
+    }
+};
+
+var inner = fn();
