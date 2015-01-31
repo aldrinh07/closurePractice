@@ -69,29 +69,6 @@ var makeCounter = function(){
   Once completed, add a second arguments that allows the function to be invoked N number of times.
   After the function has been called N number of times, console.log('STAHHP');
 */
-var func1 = function(cb,n){
-    var counter = 0;
-       if(counter = n){
-           console.log("STAHHP")
-       }
-    return newfunction(){
-        cb();
-    }
-}
-
-var makeCounter = function(n){
-    var counter = 0;
-    return function(){
-        if(counter >= n){
-            alert("STAHHP")
-        } else{
-        alert(counter);
-        counter++;
-        }
-    }
-};
-
-// answer
 
 var fn = function(cb, n) {
     return cb(n);
@@ -108,4 +85,6 @@ var callBackFn = function(n) {
     }
 };
 
-var inner = fn();
+fn(callBackFn, 4);
+
+var inner = fn(callBackFn, 4);
